@@ -6,6 +6,6 @@ One DynamoDB table is populated with form data inputed by users and displayed wh
 
 The second DynamoDB is populated from CSV flies uploaded to an S3 bucket. I implemented a lambda function that imports the CSV data into DynamoDB, and set up S3 and Lambda Event triggers to update the database anytime a new .csv file is uploaded to the target bucket.
 
---->>> https://main.d2oepvihy9cqj1.amplifyapp.com/
+--->>> https://main.d2eg8j96lvpts7.amplifyapp.com/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
