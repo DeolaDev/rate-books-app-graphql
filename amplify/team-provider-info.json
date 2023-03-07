@@ -10,6 +10,11 @@
       "StackName": "amplify-amplify2ca0b9d3c97e4-staging-05608",
       "StackId": "arn:aws:cloudformation:ca-central-1:356046674653:stack/amplify-amplify2ca0b9d3c97e4-staging-05608/d8db3b50-bc82-11ed-902c-0a25e2f3b724",
       "AmplifyAppId": "d2zdr4h8jx6b5p"
+    },
+    "categories": {
+      "api": {
+        "ratebooksappgraphql": {}
+      }
     }
   }
 }
