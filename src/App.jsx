@@ -18,7 +18,6 @@ import {
 } from "./graphql/mutations";
 import Footer from "./components/footer";
 
-
 function App() {
   const [books, setBooks] = useState([]);
   const [s3books, setS3Books] = useState([]);
@@ -31,12 +30,13 @@ function App() {
     fetchS3Books();
   }, []);
 
+  /* Call this function to get the items in the Books database */
   async function fetchBooks() {
     const apiData = await API.graphql({ query: listBooks });
     const booksFromAPI = apiData.data.listBooks.items;
     setBooks(booksFromAPI);
   }
-
+  /* Call this function to get the items in the S3Books database */
   const fetchS3Books = async () => {
     try {
       const s3BookData = await API.graphql(graphqlOperation(listS3Books));
@@ -46,7 +46,7 @@ function App() {
       console.log("error", error);
     }
   };
-
+  /* Create a new entry from user form entry */
   async function createBook(event) {
     event.preventDefault();
     const form = new FormData(event.target);
@@ -62,7 +62,7 @@ function App() {
     fetchBooks();
     event.target.reset();
   }
-
+  /* Delete a record when the user clicks on the delete button */
   async function deleteBook({ id }) {
     const newBooks = books.filter((book) => book.id !== id);
     setBooks(newBooks);
@@ -72,6 +72,7 @@ function App() {
     });
   }
 
+  /* display 2 tables with records from the 2 databases */
   return (
     <View className="App">
       <header className="App-header">
@@ -109,7 +110,7 @@ function App() {
             </Button>
           </Flex>
         </View>
-       
+
         <View>
           <Heading level={2} margin="3rem 0" width="100%">
             User Submitted Ratings
@@ -137,8 +138,8 @@ function App() {
           </Table>
 
           <Heading level={2} margin="3rem 0">
-            Ratings directly from DynamoDB table <br></br>populated dynamically with data
-            from CSV files uploaded to an Amazon S3 bucket
+            Ratings directly from DynamoDB table <br></br>populated dynamically
+            with data from CSV files uploaded to an Amazon S3 bucket
           </Heading>
           <Table class="center">
             <TableHead>
